@@ -11,7 +11,7 @@
 </p>
 
 <p align="center" width="100%">
-    <img src="Images/kibot_variants.png">
+    <img src="Logos/kibot_variants.png">
 </p>
 
 ***

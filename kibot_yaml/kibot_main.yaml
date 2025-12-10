@@ -558,7 +558,7 @@ definitions:
   # Metadata ===================================================================
 
   PROJECT_NAME: Test KDT
-  BOARD_NAME: 000
+  BOARD_NAME: Test KDT example
 
   COMPANY: INTI
   DESIGNER: SET
@@ -574,8 +574,8 @@ definitions:
 
   # BoM ========================================================================
 
-  MPN_FIELD: 'MPN'
-  MAN_FIELD: 'MAN'
+  MPN_FIELD: 'mpn'
+  MAN_FIELD: 'mfn'
 
   # Drill table and drill map parameters =======================================
 
