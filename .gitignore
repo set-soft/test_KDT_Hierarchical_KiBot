@@ -6,6 +6,7 @@ _autosave-*
 *.ini
 *.kicad_sch-bak
 *.kicad_pro-bak
+*.kicad_prl-bak
 *.kicad_pcb-bak
 fp-info-cache
 *Zone.Identifier
