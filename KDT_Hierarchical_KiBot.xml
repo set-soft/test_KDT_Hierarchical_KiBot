@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/__w/test_KDT_Hierarchical_KiBot/test_KDT_Hierarchical_KiBot/KDT_Hierarchical_KiBot.kicad_sch</source>
-    <date>2025-12-10T14:16:37+0000</date>
+    <date>2025-12-10T16:40:16+0000</date>
     <tool>Eeschema 9.0.6+1</tool>
     <textvar name="ASSEMBLY_NOTES">ASSEMBLY NOTES (UNLESS OTHERWISE SPECIFIED)
 
@@ -76,7 +76,7 @@
 12)	CONFIRM SPACE WIDTHS AND SPACINGS.</textvar>
     <textvar name="GIT_HASH_PCB">d5db5df</textvar>
     <textvar name="GIT_HASH_SCH">c440c30</textvar>
-    <textvar name="GIT_URL">https://github.com/set-soft/test_KDT_Hierarchical_KiBot.git</textvar>
+    <textvar name="GIT_URL">https://github.com/set-soft/test_KDT_Hierarchical_KiBot</textvar>
     <textvar name="PROJECT_NAME">Test KDT</textvar>
     <textvar name="RELEASE_BODY_1.0.0"/>
     <textvar name="RELEASE_BODY_1.0.1"/>

@@ -1,17 +1,17 @@
 <p align="center" width="100%">
-  <img alt="Logo" width="33%" src="Logos/dummy_logo.svg">
+  <img alt="Logo" width="33%" src="Logos/logo_INTI.png">
 </p>
 
 <h1 align="center">0</h1>
 
 <p align="center" width="100%">
-  <a href="https://github.com/set-soft/test_KDT_Hierarchical_KiBot.git/actions/workflows/ci.yaml">
-    <img alt="CI Badge" src="https://github.com/set-soft/test_KDT_Hierarchical_KiBot.git/actions/workflows/ci.yaml/badge.svg?branch=">
+  <a href="https://github.com/set-soft/test_KDT_Hierarchical_KiBot/actions/workflows/ci.yaml">
+    <img alt="CI Badge" src="https://github.com/set-soft/test_KDT_Hierarchical_KiBot/actions/workflows/ci.yaml/badge.svg?branch=">
   </a>
 </p>
 
 <p align="center" width="100%">
-    <img src="Images/dummy_image.png">
+    <img src="Images/kibot_variants.png">
 </p>
 
 ***
