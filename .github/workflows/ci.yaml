@@ -23,6 +23,9 @@ env:
   # Ignored warnings
   kibot_ignore_warn: '44'
 
+  # Logfile
+  kibot_log: 'kibot.log'
+
   # Set the KiCad version to 9
   kicad_version: 9
  
@@ -172,21 +175,21 @@ jobs:
         if: ${{ env.kibot_variant != 'DRAFT' }}
         id: generate-notes
         run: |
-          kibot -c '${{ env.kibot_config }}' -w ${{ env.kibot_ignore_warn }} -d '.' -s all -g variant=${{ env.kibot_variant }} notes
+          kibot -L '${{ env.kibot_log }}' -c '${{ env.kibot_config }}' -w ${{ env.kibot_ignore_warn }} -d '.' -s all -g variant=${{ env.kibot_variant }} notes
 
       # Generate README only (only for DRAFT variant)
       - name: Generate README only
         if: ${{ env.kibot_variant == 'DRAFT' }}
         id: generate-readme
         run: |
-          kibot -c '${{ env.kibot_config }}' -w ${{ env.kibot_ignore_warn }} -d '.' -s draw_fancy_stackup,set_text_variables,erc,drc -g variant=${{ env.kibot_variant }} md_readme
+          kibot -L '${{ env.kibot_log }}' -c '${{ env.kibot_config }}' -w ${{ env.kibot_ignore_warn }} -d '.' -s draw_fancy_stackup,set_text_variables,erc,drc -g variant=${{ env.kibot_variant }} md_readme
 
       # Generate outputs
       - name: Generate outputs
         id: generate-outputs
         run: |
           export KIBOT_3D_MODELS="$HOME/cache_3d"
-          kibot -c '${{ env.kibot_config }}' -w ${{ env.kibot_ignore_warn }} -d '.' -g variant=${{ env.kibot_variant }} ${{ env.additional_args }}
+          kibot -L '${{ env.kibot_log }}' -c '${{ env.kibot_config }}' -w ${{ env.kibot_ignore_warn }} -d '.' -g variant=${{ env.kibot_variant }} ${{ env.additional_args }}
 
       - name: Pull latest changes
         run: |
@@ -225,3 +228,10 @@ jobs:
         with:
           branch: ${{ github.ref_name }}
           commit_message: Update Outputs
+
+      - name: Store log
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: log_file
+          path: ${{ env.kibot_log }}
