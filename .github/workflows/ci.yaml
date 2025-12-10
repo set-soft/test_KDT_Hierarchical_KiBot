@@ -20,6 +20,9 @@ env:
   # RELEASED: similar to CHECKED, automatically selected when pushing a tag to main
   kibot_variant: DRAFT
 
+  # Ignored warnings
+  kibot_ignore_warn: '44'
+
   # Set the KiCad version to 9
   kicad_version: 9
  
@@ -27,6 +30,22 @@ permissions:
   contents: write
 
 jobs:
+  # Choose a docker image according to the KiCad version
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      image: ${{ steps.set-image.outputs.image }}
+    steps:
+      - name: Determine Docker Image
+        id: set-image
+        # Logic: If kicad_version is 8, use kicad8_auto_full, else default to kicad9_auto_full
+        run: |
+          if [ "${{ env.kicad_version }}" == "8" ]; then
+            echo "image=ghcr.io/inti-cmnb/kicad8_auto_full:latest" >> $GITHUB_OUTPUT
+          else
+            echo "image=ghcr.io/inti-cmnb/kicad9_auto_full:latest" >> $GITHUB_OUTPUT
+          fi
+
   release:
     needs: generate_outputs
     runs-on: ubuntu-latest
@@ -59,7 +78,10 @@ jobs:
             Testing/Testpoints/*.csv
 
   generate_outputs:
+    needs: setup
     runs-on: ubuntu-latest
+    container: ${{ needs.setup.outputs.image }}
+
     if: "!contains(github.event.head_commit.message, 'Merge pull request') || github.ref_type == 'tag'"
     steps:
       - name: Checkout Repository
@@ -146,61 +168,25 @@ jobs:
           echo "additional_args=${additional_args}" >> $GITHUB_ENV
 
       # Generate notes (skipped for DRAFT variant)
-      - name: Generate notes (KiCad 8)
-        if: ${{ env.kicad_version == '8' && env.kibot_variant != 'DRAFT' }}
-        uses: INTI-CMNB/KiBot@v2_dk8
-        with:
-          targets: notes
-          skip: all
-          variant: ${{ env.kibot_variant }}
-          config: ${{ env.kibot_config }}
-
-      - name: Generate notes (KiCad 9)
-        if: ${{ env.kicad_version == '9' && env.kibot_variant != 'DRAFT' }}
-        uses: INTI-CMNB/KiBot@v2_dk9
-        with:
-          targets: notes
-          skip: all
-          variant: ${{ env.kibot_variant }}
-          config: ${{ env.kibot_config }}
+      - name: Generate notes
+        if: ${{ env.kibot_variant != 'DRAFT' }}
+        id: generate-notes
+        run: |
+          kibot -c '${{ env.kibot_config }}' -w ${{ env.kibot_ignore_warn }} -d '.' -s all -g variant=${{ env.kibot_variant }} notes
 
       # Generate README only (only for DRAFT variant)
-      - name: Generate README only (KiCad 8)
-        if: ${{ env.kicad_version == '8' && env.kibot_variant == 'DRAFT' }}
-        uses: INTI-CMNB/KiBot@v2_dk8
-        with:
-          targets: md_readme
-          skip: draw_fancy_stackup,set_text_variables,erc,drc
-          variant: ${{ env.kibot_variant }}
-          config: ${{ env.kibot_config }}
-
-      - name: Generate README only (KiCad 9)
-        if: ${{ env.kicad_version == '9' && env.kibot_variant == 'DRAFT' }}
-        uses: INTI-CMNB/KiBot@v2_dk9
-        with:
-          targets: md_readme
-          skip: draw_fancy_stackup,set_text_variables,erc,drc
-          variant: ${{ env.kibot_variant }}
-          config: ${{ env.kibot_config }}
+      - name: Generate README only
+        if: ${{ env.kibot_variant == 'DRAFT' }}
+        id: generate-readme
+        run: |
+          kibot -c '${{ env.kibot_config }}' -w ${{ env.kibot_ignore_warn }} -d '.' -s draw_fancy_stackup,set_text_variables,erc,drc -g variant=${{ env.kibot_variant }} md_readme
 
       # Generate outputs
-      - name: Generate outputs (KiCad 8)
-        if: ${{ env.kicad_version == '8' }}
-        uses: INTI-CMNB/KiBot@v2_dk8
-        with:
-          additional_args: ${{ env.additional_args }}
-          variant: ${{ env.kibot_variant }}
-          config: ${{ env.kibot_config }}
-          cache3D: YES
-
-      - name: Generate outputs (KiCad 9)
-        if: ${{ env.kicad_version == '9' }}
-        uses: INTI-CMNB/KiBot@v2_dk9
-        with:
-          additional_args: ${{ env.additional_args }}
-          variant: ${{ env.kibot_variant }}
-          config: ${{ env.kibot_config }}
-          cache3D: YES
+      - name: Generate outputs
+        id: generate-outputs
+        run: |
+          export KIBOT_3D_MODELS="$HOME/cache_3d"
+          kibot -c '${{ env.kibot_config }}' -w ${{ env.kibot_ignore_warn }} -d '.' -g variant=${{ env.kibot_variant }} ${{ env.additional_args }}
 
       - name: Pull latest changes
         run: |
