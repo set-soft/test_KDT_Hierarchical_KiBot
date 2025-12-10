@@ -15,6 +15,8 @@ costs_flag=false
 server_flag=false
 server_port=8000
 pid_file="/tmp/kibot_server.pid"
+kibot_ignore_warn="44"
+kibot_log="kibot.log"
 
 # Display help
 function display_help() {
@@ -160,20 +162,20 @@ esac
 
 # Determine command based on variant
 if [[ "$costs_flag" == true ]]; then
-    kibot_command1="$kibot_base --skip-pre erc,drc,draw_fancy_stackup $kibot_config -d '$output_dir' -g variant=$variant -E REVISION='$revision' -E KICOST_CONFIG='kibot_yaml/kicost_config_local.yaml' xlsx_bom"
+    kibot_command1="$kibot_base -L $kibot_log --skip-pre erc,drc,draw_fancy_stackup $kibot_config -w $kibot_ignore_warn -d '$output_dir' -g variant=$variant -E REVISION='$revision' -E KICOST_CONFIG='kibot_yaml/kicost_config_local.yaml' xlsx_bom"
 else
     case "$variant" in
         DRAFT)
-            kibot_command1="$kibot_base --skip-pre set_text_variables,draw_fancy_stackup,erc,drc $kibot_config -d '$output_dir' -g variant=$variant -E REVISION='$revision' md_readme"
-            kibot_command2="$kibot_base --skip-pre draw_fancy_stackup,erc,drc $kibot_config -d '$output_dir' -g variant=$variant -E REVISION='$revision' draft_group"
+            kibot_command1="$kibot_base -L $kibot_log --skip-pre set_text_variables,draw_fancy_stackup,erc,drc $kibot_config -w $kibot_ignore_warn -d '$output_dir' -g variant=$variant -E REVISION='$revision' md_readme"
+            kibot_command2="$kibot_base -L $kibot_log --skip-pre draw_fancy_stackup,erc,drc $kibot_config -w $kibot_ignore_warn -d '$output_dir' -g variant=$variant -E REVISION='$revision' draft_group"
             ;;
         PRELIMINARY)
-            kibot_command1="$kibot_base --skip-pre erc,drc $kibot_config -d '$output_dir' -g variant=$variant -E REVISION='$revision' notes"
-            kibot_command2="$kibot_base --skip-pre erc,drc $kibot_config -d '$output_dir' -g variant=$variant -E REVISION='$revision' $all_group"
+            kibot_command1="$kibot_base -L $kibot_log --skip-pre erc,drc $kibot_config -w $kibot_ignore_warn -d '$output_dir' -g variant=$variant -E REVISION='$revision' notes"
+            kibot_command2="$kibot_base -L $kibot_log --skip-pre erc,drc $kibot_config -w $kibot_ignore_warn -d '$output_dir' -g variant=$variant -E REVISION='$revision' $all_group"
             ;;
         CHECKED|RELEASED|*)
-            kibot_command1="$kibot_base --skip-pre set_text_variables,draw_fancy_stackup,erc,drc $kibot_config -d '$output_dir' -g variant=$variant -E REVISION='$revision' notes"
-            kibot_command2="$kibot_base $kibot_config -d '$output_dir' -g variant=$variant -E REVISION='$revision' $all_group"
+            kibot_command1="$kibot_base -L $kibot_log --skip-pre set_text_variables,draw_fancy_stackup,erc,drc $kibot_config -w $kibot_ignore_warn -d '$output_dir' -g variant=$variant -E REVISION='$revision' notes"
+            kibot_command2="$kibot_base -L $kibot_log $kibot_config -w $kibot_ignore_warn -d '$output_dir' -g variant=$variant -E REVISION='$revision' $all_group"
             ;;
     esac
 fi
