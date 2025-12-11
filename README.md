@@ -2,7 +2,7 @@
   <img alt="Logo" width="33%" src="Logos/logo_INTI.png">
 </p>
 
-<h1 align="center">0</h1>
+<h1 align="center">Test KDT example</h1>
 
 <p align="center" width="100%">
   <a href="https://github.com/set-soft/test_KDT_Hierarchical_KiBot/actions/workflows/ci.yaml">
@@ -11,7 +11,7 @@
 </p>
 
 <p align="center" width="100%">
-    <img src="Images/kibot_variants.png">
+    <img src="Logos/kibot_variants.png">
 </p>
 
 ***

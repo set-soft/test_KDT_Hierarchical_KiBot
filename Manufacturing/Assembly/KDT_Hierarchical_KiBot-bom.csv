@@ -1,10 +1,10 @@
-Row,Quantity Per PCB,References,Value,Datasheet,Footprint,Description,MAN,MPN,Supplier Part Number
+Row,Quantity Per PCB,References,Value,Datasheet,Footprint,Description,mfn,mpn,Supplier Part Number
 1,4,C2 C6 C7 C8,100nF,~,C_0805_2012Metric,Unpolarized capacitor,,,
 2,1,C5,1uF,~,C_0805_2012Metric,Unpolarized capacitor,,,
-3,1,C1,47uF,~,CP_Elec_8x10,Polarized capacitor,,,
+3,1,C1,47uF,~,CP_Elec_8x10,Polarized capacitor,Vishay Beyschlag/Draloric/BC Components,,
 4,1,D1,CD1206-S01575,~,D_1206_3216Metric,Diode,,,
-5,2,D2 D3,LED,~,LED_0805_2012Metric,Light emitting diode,,,
-6,4,J1 J3 J5 J6,Barrel_Jack_Switch,~,BarrelJack_CLIFF_FC681465S_SMT_Horizontal,"DC Barrel Jack with an internal switch Generic connector, single row, 01x05, script generated Generic connector, double row, 02x03, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/) Generic connector, single row, 01x06, script generated",,,
+5,2,D2 D3,LED,~,LED_0805_2012Metric,Light emitting diode,OSRAM Opto Semiconductors Inc.,,
+6,4,J1 J3 J5 J6,Barrel_Jack_Switch,~,BarrelJack_CLIFF_FC681465S_SMT_Horizontal,"DC Barrel Jack with an internal switch Generic connector, single row, 01x05, script generated Generic connector, double row, 02x03, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/) Generic connector, single row, 01x06, script generated",Würth Elektronik Harwin Inc.,,
 7,1,LOGO1,Logo_Open_Hardware_Large,~,OSHW-Logo_11.4x12mm_SilkScreen,"Open Hardware logo, large",,,
 8,3,R5 R6 R7,1K,~,R_0805_2012Metric,Resistor,,,
 9,1,R4,10K,~,R_0805_2012Metric,Resistor,,,
