@@ -18,7 +18,7 @@ env:
   # PRELIMINARY: will generate both schematic and PCB documents, but no ERC/DRC
   # CHECKED: will generate both schematic and PCB documents, with ERC/DRC
   # RELEASED: similar to CHECKED, automatically selected when pushing a tag to main
-  kibot_variant: PRELIMINARY
+  kibot_variant: CHECKED
 
   # Ignored warnings
   kibot_ignore_warn: '44'
@@ -103,25 +103,20 @@ jobs:
 
       - name: Extract release notes
         if: ${{ github.ref_type == 'tag' }}
-        uses: ffurrer2/extract-release-notes@v2
-        id: extract-release-notes
-        with:
-          prerelease: true
+        run: |
+          pip install --break-system-packages git+https://github.com/set-soft/keepachangelog
+          keepachangelog show -u unreleased
+          keepachangelog show -u unreleased > release-notes.md
 
       - name: Update changelog
         if: ${{ github.ref_type == 'tag' }}
-        uses: thomaseizinger/keep-a-changelog-new-release@v2
-        with:
-          tag: ${{ github.ref_name }}
+        run: |
+          keepachangelog release ${{ github.ref_name }}
 
       - name: Commit updated CHANGELOG
         if: ${{ github.ref_type == 'tag' }}
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          branch: main
-          commit_message: Update CHANGELOG
-          file_pattern: CHANGELOG.md
-          push_options: '--force'
+        run: |
+          git commit --force -m "Update CHANGELOG" CHANGELOG.md
 
       - name: Cache 3D models data
         id: models-cache
@@ -222,6 +217,8 @@ jobs:
           git clean -f "*.kicad_pro"
           git clean -f "*.kicad_dru"
           git clean -f "*.kicad_prl"
+          echo "ref_name: " ${{ github.ref_name }}
+          git status
 
       - name: Update Outputs
         uses: stefanzweifel/git-auto-commit-action@v5
