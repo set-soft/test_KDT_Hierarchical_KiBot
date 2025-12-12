@@ -67,7 +67,7 @@ groups:
     outputs:
       - @NETLIST_OUTPUT@
       - bom
-      # - 3d
+      - 3d
       - fab_k9
       - assembly
       - @PDF_SCHEMATIC_OUTPUT@
@@ -106,7 +106,7 @@ groups:
 
   - name: assembly
     outputs:
-      - 3d_render
+      # - 3d_render
       - @CSV_POS_OUTPUT@
       - @PDF_ASSEMBLY_OUTPUT@
 

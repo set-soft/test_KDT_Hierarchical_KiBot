@@ -68,6 +68,12 @@ jobs:
           git fetch
           git pull origin main
 
+      - name: Extract release notes
+        run: |
+          pip install --break-system-packages git+https://github.com/set-soft/keepachangelog
+          keepachangelog show -u unreleased
+          keepachangelog show -u unreleased > release-notes.md
+
       - name: Release
         run: |
           export GH_TOKEN="${{ github.token }}"
@@ -97,16 +103,10 @@ jobs:
           git fetch
           git pull origin main
 
-      - name: Extract release notes
-        if: ${{ github.ref_type == 'tag' }}
-        run: |
-          pip install --break-system-packages git+https://github.com/set-soft/keepachangelog
-          keepachangelog show -u unreleased
-          keepachangelog show -u unreleased > release-notes.md
-
       - name: Update changelog
         if: ${{ github.ref_type == 'tag' }}
         run: |
+          pip install --break-system-packages git+https://github.com/set-soft/keepachangelog
           keepachangelog release ${{ github.ref_name }}
 
       - name: Commit updated CHANGELOG
