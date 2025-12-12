@@ -226,15 +226,10 @@ jobs:
           echo "ref_name: " ${{ github.ref_name }}
           git status
 
-#      - name: Update Outputs
-#        uses: stefanzweifel/git-auto-commit-action@v5
-#        with:
-#          branch: ${{ github.ref_name }}
-#          commit_message: Update Outputs
-#          push_options: '--force'
       - name: Update Outputs
         run: |
-          git commit -a -m "Update Outputs"
+          git add .
+          git commit -a -m "Update Outputs" || echo "Nothing to commit"
           git push -f
 
       - name: Store log
