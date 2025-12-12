@@ -1,0 +1,6 @@
+Count,Hole Size,Plated,Hole Shape,Drill Layer Pair,Hole Type
+40,0.40mm (15.75mils),PTH,Round,"L1 (Sig, PWR) - L6 (Sig, PWR)",Via
+4,0.95mm (37.40mils),PTH,Round,"L1 (Sig, PWR) - L6 (Sig, PWR)",Pad
+21,1.00mm (39.37mils),PTH,Round,"L1 (Sig, PWR) - L6 (Sig, PWR)",Pad
+2,2.30mm (90.55mils),PTH,Round,"L1 (Sig, PWR) - L6 (Sig, PWR)",Pad
+Total 67,,,,,

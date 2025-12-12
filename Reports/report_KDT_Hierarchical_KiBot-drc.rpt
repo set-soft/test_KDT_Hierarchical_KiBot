@@ -1,0 +1,270 @@
+** Drc report for KDT_Hierarchical_KiBot.kicad_pcb **
+** Created on 2025-12-11T16:55:29+0000 **
+
+** Found 55 DRC violations **
+[clearance]: Clearance violation (rule 'Minimum Trace Width and Spacing (outer layer)' clearance 0.2000 mm; actual 0.1905 mm)
+    ; error
+    @(155.027 mm, 91.9278 mm): Via [Earth] on L1 (Sig, PWR) - L6 (Sig, PWR)
+    @(153.1556 mm, 91.1468 mm): Track [Net-(U1-D+)] on L1 (Sig, PWR), length 4.3162 mm
+[clearance]: Clearance violation (rule 'Minimum Trace Width and Spacing (outer layer)' clearance 0.2000 mm; actual 0.1524 mm)
+    ; error
+    @(147.5109 mm, 84.5618 mm): Pad 1 [+5V] of C7 on L1 (Sig, PWR)
+    @(147.66251 mm, 85.60471 mm): Track [Net-(J3-Pin_5)] on L1 (Sig, PWR), length 1.4478 mm
+[clearance]: Clearance violation (rule 'Minimum Trace Width and Spacing (outer layer)' clearance 0.2000 mm; actual 0.1524 mm)
+    ; error
+    @(147.5109 mm, 84.5618 mm): Pad 1 [+5V] of C7 on L1 (Sig, PWR)
+    @(148.5056 mm, 86.4478 mm): Track [Net-(J3-Pin_5)] on L1 (Sig, PWR), length 1.1923 mm
+[clearance]: Clearance violation (rule 'Pad to Track clearance' clearance 0.2000 mm; actual 0.1595 mm)
+    ; error
+    @(147.7056 mm, 95.7968 mm): Track [Net-(J4-Pin_3)] on L1 (Sig, PWR), length 6.3480 mm
+    @(148.9056 mm, 100.9448 mm): PTH pad 2 [Net-(J4-Pin_2)] of J4
+[clearance]: Clearance violation (rule 'Pad to Track clearance' clearance 0.2000 mm; actual 0.1796 mm)
+    ; error
+    @(136.879599 mm, 102.202999 mm): Track [/SCK2] on L1 (Sig, PWR), length 2.7704 mm
+    @(135.596 mm, 100.9194 mm): PTH pad 2 [+5V] of J5
+[clearance]: Clearance violation (rule 'Minimum Trace Width and Spacing (outer layer)' clearance 0.2000 mm; actual 0.1588 mm)
+    ; error
+    @(148.1944 mm, 84.2062 mm): Track [Net-(J3-Pin_3)] on L6 (Sig, PWR), length 7.4422 mm
+    @(149.0072 mm, 88.9814 mm): Via [+5V] on L1 (Sig, PWR) - L6 (Sig, PWR)
+[clearance]: Clearance violation (rule 'Minimum Trace Width and Spacing (outer layer)' clearance 0.2000 mm; actual 0.1664 mm)
+    ; error
+    @(143.068711 mm, 91.084489 mm): Via [Net-(J6-Pin_2)] on L1 (Sig, PWR) - L6 (Sig, PWR)
+    @(142.5556 mm, 90.3276 mm): Track [/TXLED] on L1 (Sig, PWR), length 2.0808 mm
+[clearance]: Clearance violation (rule 'Minimum Trace Width and Spacing (outer layer)' clearance 0.2000 mm; actual 0.1524 mm)
+    ; error
+    @(143.068711 mm, 91.084489 mm): Via [Net-(J6-Pin_2)] on L1 (Sig, PWR) - L6 (Sig, PWR)
+    @(142.7906 mm, 91.9468 mm): Track [/DTR] on L1 (Sig, PWR), length 0.7634 mm
+[clearance]: Clearance violation (rule 'Pad to Track clearance' clearance 0.2000 mm; actual 0.1796 mm)
+    ; error
+    @(140.676 mm, 100.9194 mm): PTH pad 6 [GND] of J5
+    @(140.072927 mm, 102.202999 mm): Track [/MISO2] on L1 (Sig, PWR), length 2.4455 mm
+[clearance]: Clearance violation (rule 'Pad to Track clearance' clearance 0.2000 mm; actual 0.1796 mm)
+    ; error
+    @(138.136 mm, 103.4594 mm): PTH pad 3 [/SCK2] of J5
+    @(139.419599 mm, 104.487201 mm): Track [/MISO2] on L1 (Sig, PWR), length 1.6309 mm
+[clearance]: Clearance violation (rule 'Minimum Trace Width and Spacing (outer layer)' clearance 0.2000 mm; actual 0.1524 mm)
+    ; error
+    @(146.1627 mm, 91.5468 mm): Via [Net-(J6-Pin_4)] on L1 (Sig, PWR) - L6 (Sig, PWR)
+    @(146.9056 mm, 87.2968 mm): Track [Net-(J6-Pin_5)] on L1 (Sig, PWR), length 5.2594 mm
+[clearance]: Clearance violation (rule 'Minimum Trace Width and Spacing (outer layer)' clearance 0.2000 mm; actual 0.1858 mm)
+    ; error
+    @(150.4296 mm, 90.2768 mm): Pad 1 [Net-(U1-D-)] of TP9 on L6 (Sig, PWR)
+    @(151.3694 mm, 85.5778 mm): Track [Net-(J3-Pin_4)] on L6 (Sig, PWR), length 7.6708 mm
+[clearance]: Clearance violation (rule 'Pad to Track clearance' clearance 0.2000 mm; actual 0.1524 mm)
+    ; error
+    @(135.4436 mm, 87.9908 mm): PTH pad 3 [Net-(J6-Pin_3)] of J6
+    @(134.840527 mm, 89.247201 mm): Track [Net-(J6-Pin_2)] on L6 (Sig, PWR), length 6.3909 mm
+[clearance]: Clearance violation (rule 'Pad to Track clearance' clearance 0.2000 mm; actual 0.1524 mm)
+    ; error
+    @(130.170527 mm, 81.398399 mm): Track [Net-(J3-Pin_1)] on L6 (Sig, PWR), length 13.9969 mm
+    @(130.7736 mm, 82.6548 mm): PTH pad 2 [Net-(J3-Pin_2)] of J3
+[via_dangling]: Via is not connected or connected on only one layer
+    ; warning
+    @(153.6554 mm, 87.6606 mm): Via [+5V] on L1 (Sig, PWR) - L6 (Sig, PWR)
+[via_dangling]: Via is not connected or connected on only one layer
+    ; warning
+    @(117.6128 mm, 90.099 mm): Via [+5V] on L1 (Sig, PWR) - L6 (Sig, PWR)
+[via_dangling]: Via is not connected or connected on only one layer
+    ; warning
+    @(154.3158 mm, 104.2976 mm): Via [+5V] on L1 (Sig, PWR) - L6 (Sig, PWR)
+[via_dangling]: Via is not connected or connected on only one layer
+    ; warning
+    @(123.5818 mm, 89.9974 mm): Via [+5V] on L1 (Sig, PWR) - L6 (Sig, PWR)
+[via_dangling]: Via is not connected or connected on only one layer
+    ; warning
+    @(140.4982 mm, 74.9352 mm): Via [+5V] on L1 (Sig, PWR) - L6 (Sig, PWR)
+[via_dangling]: Via is not connected or connected on only one layer
+    ; warning
+    @(125.309 mm, 94.5948 mm): Via [+5V] on L1 (Sig, PWR) - L6 (Sig, PWR)
+[via_dangling]: Via is not connected or connected on only one layer
+    ; warning
+    @(116.038 mm, 95.0266 mm): Via [+5V] on L1 (Sig, PWR) - L6 (Sig, PWR)
+[via_dangling]: Via is not connected or connected on only one layer
+    ; warning
+    @(149.0072 mm, 88.9814 mm): Via [+5V] on L1 (Sig, PWR) - L6 (Sig, PWR)
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    ; warning
+    @(113.39 mm, 71.33 mm): Rectangle on Edge.Cuts
+    @(112.4636 mm, 82.3348 mm): Segment of J1 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    ; warning
+    @(113.39 mm, 71.33 mm): Rectangle on Edge.Cuts
+    @(112.4636 mm, 91.4548 mm): Segment of J1 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    ; warning
+    @(113.39 mm, 71.33 mm): Rectangle on Edge.Cuts
+    @(183.2256 mm, 82.3688 mm): Segment of J2 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    ; warning
+    @(113.39 mm, 71.33 mm): Rectangle on Edge.Cuts
+    @(183.2256 mm, 94.5888 mm): Segment of J2 on F.Silkscreen
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'.
+    ; warning
+    @(157.7956 mm, 94.8488 mm): Footprint C5
+[lib_footprint_mismatch]: Footprint 'PinHeader_1x05_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.
+    ; warning
+    @(130.7736 mm, 85.1948 mm): Footprint J3
+[lib_footprint_mismatch]: Footprint 'PinHeader_1x06_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.
+    ; warning
+    @(135.4436 mm, 82.9108 mm): Footprint J6
+[lib_footprint_mismatch]: Footprint 'R_0603_1608Metric' does not match copy in library 'Resistor_SMD'.
+    ; warning
+    @(164.9076 mm, 88.0162 mm): Footprint VR2
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'.
+    ; warning
+    @(139.2282 mm, 84.6634 mm): Footprint C8
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'.
+    ; warning
+    @(117.4736 mm, 96.5948 mm): Footprint C2
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'.
+    ; warning
+    @(160.8436 mm, 91.8008 mm): Footprint R1
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'.
+    ; warning
+    @(162.3676 mm, 96.3728 mm): Footprint FB1
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'.
+    ; warning
+    @(160.8436 mm, 89.5148 mm): Footprint R2
+[lib_footprint_mismatch]: Footprint 'Fiducial_0.75mm_Mask1.5mm' does not match copy in library 'Fiducial'.
+    ; warning
+    @(124.4708 mm, 75.7734 mm): Footprint FID3
+[lib_footprint_mismatch]: Footprint 'Fiducial_0.75mm_Mask1.5mm' does not match copy in library 'Fiducial'.
+    ; warning
+    @(166.1776 mm, 102.9768 mm): Footprint FID2
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'.
+    ; warning
+    @(148.4484 mm, 84.5618 mm): Footprint C7
+[lib_footprint_mismatch]: Footprint 'R_0603_1608Metric' does not match copy in library 'Resistor_SMD'.
+    ; warning
+    @(164.9076 mm, 93.0453 mm): Footprint VR1
+[lib_footprint_mismatch]: Footprint 'SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm' does not match copy in library 'Jumper'.
+    ; warning
+    @(161.7326 mm, 101.4782 mm): Footprint JP1
+[lib_footprint_mismatch]: Footprint 'D_1206_3216Metric' does not match copy in library 'Diode_SMD'.
+    ; warning
+    @(157.2876 mm, 102.4688 mm): Footprint D1
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'.
+    ; warning
+    @(153.4776 mm, 101.4528 mm): Footprint R4
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'.
+    ; warning
+    @(156.7336 mm, 80.8108 mm): Footprint C3
+[lib_footprint_mismatch]: Footprint 'PinHeader_2x03_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.
+    ; warning
+    @(135.596 mm, 103.4594 mm): Footprint J5
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'.
+    ; warning
+    @(153.4316 mm, 81.5728 mm): Footprint R3
+[lib_footprint_mismatch]: Footprint 'PinHeader_2x02_P2.54mm_Vertical' does not match copy in library 'Connector_PinHeader_2.54mm'.
+    ; warning
+    @(146.3656 mm, 100.9448 mm): Footprint J4
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'.
+    ; warning
+    @(139.2282 mm, 88.4988 mm): Footprint R5
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'.
+    ; warning
+    @(141.7936 mm, 75.8696 mm): Footprint R6
+[lib_footprint_mismatch]: Footprint 'Crystal_SMD_Abracon_ABM3-2Pin_5.0x3.2mm' does not match copy in library 'Crystal'.
+    ; warning
+    @(153.4014 mm, 75.7226 mm): Footprint Y1
+[lib_footprint_mismatch]: Footprint 'R_0805_2012Metric' does not match copy in library 'Resistor_SMD'.
+    ; warning
+    @(139.2536 mm, 75.8696 mm): Footprint R7
+[lib_footprint_mismatch]: Footprint 'TQFP-32_7x7mm_P0.8mm' does not match copy in library 'Package_QFP'.
+    ; warning
+    @(148.9056 mm, 91.5468 mm): Footprint U1
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'.
+    ; warning
+    @(150.3836 mm, 80.8108 mm): Footprint C4
+[lib_footprint_mismatch]: Footprint 'Fiducial_0.75mm_Mask1.5mm' does not match copy in library 'Fiducial'.
+    ; warning
+    @(163.8916 mm, 76.3068 mm): Footprint FID1
+[lib_footprint_mismatch]: Footprint 'C_0805_2012Metric' does not match copy in library 'Capacitor_SMD'.
+    ; warning
+    @(156.8558 mm, 87.7622 mm): Footprint C6
+[lib_footprint_mismatch]: Footprint 'Fiducial_0.75mm_Mask1.5mm' does not match copy in library 'Fiducial'.
+    ; warning
+    @(131.6844 mm, 103.8658 mm): Footprint FID4
+
+** Found 6 unconnected pads **
+[unconnected_items]: Missing connection between items
+    ; error
+    @(117.5736 mm, 90.1382 mm): Track [+5V] on L1 (Sig, PWR), length 0.0554 mm
+    @(123.5736 mm, 92.3948 mm): Track [+5V] on L1 (Sig, PWR), length 2.3892 mm
+[unconnected_items]: Missing connection between items
+    ; error
+    @(125.309 mm, 97.3392 mm): Pad 1 [+5V] of C1 on L1 (Sig, PWR)
+    @(135.596 mm, 100.9194 mm): PTH pad 2 [+5V] of J5
+[unconnected_items]: Missing connection between items
+    ; error
+    @(135.596 mm, 100.9194 mm): PTH pad 2 [+5V] of J5
+    @(153.4776 mm, 102.3903 mm): Track [+5V] on L1 (Sig, PWR), length 1.0691 mm
+[unconnected_items]: Missing connection between items
+    ; error
+    @(149.3056 mm, 86.3565 mm): Track [+5V] on L1 (Sig, PWR), length 2.5381 mm
+    @(141.7936 mm, 74.9321 mm): Track [+5V] on L1 (Sig, PWR), length 1.2923 mm
+[unconnected_items]: Missing connection between items
+    ; error
+    @(153.1556 mm, 88.7468 mm): Pad 32 [+5V] of U1 on L1 (Sig, PWR)
+    @(149.3056 mm, 87.2968 mm): Track [+5V] on L1 (Sig, PWR), length 1.3862 mm
+[unconnected_items]: Missing connection between items
+    ; error
+    @(153.4776 mm, 102.3903 mm): Track [+5V] on L1 (Sig, PWR), length 1.0691 mm
+    @(153.1556 mm, 88.7468 mm): Pad 32 [+5V] of U1 on L1 (Sig, PWR)
+
+** Found 18 Footprint errors **
+[net_conflict]: Pad net (/DTR) doesn't match net given by schematic (/Project Architecture/Section A - Title A/DTR).
+    ; warning
+    @(139.2282 mm, 85.6009 mm): Pad 1 [/DTR] of C8 on L1 (Sig, PWR)
+[net_conflict]: Pad net (/RESET2) doesn't match net given by schematic (/Project Architecture/Section A - Title A/RESET2).
+    ; warning
+    @(157.2876 mm, 101.0688 mm): Pad 2 [/RESET2] of D1 on L1 (Sig, PWR)
+[net_conflict]: Pad net (/RXLED) doesn't match net given by schematic (/Project Architecture/Section A - Title A/RXLED).
+    ; warning
+    @(141.7936 mm, 81.5823 mm): Pad 1 [/RXLED] of D2 on L1 (Sig, PWR)
+[net_conflict]: Pad net (/TXLED) doesn't match net given by schematic (/Project Architecture/Section A - Title A/TXLED).
+    ; warning
+    @(139.2536 mm, 81.5823 mm): Pad 1 [/TXLED] of D3 on L1 (Sig, PWR)
+[net_conflict]: Pad net (/MISO2) doesn't match net given by schematic (/Project Architecture/Section A - Title A/MISO2).
+    ; warning
+    @(135.596 mm, 103.4594 mm): PTH pad 1 [/MISO2] of J5
+[net_conflict]: Pad net (/SCK2) doesn't match net given by schematic (/Project Architecture/Section A - Title A/SCK2).
+    ; warning
+    @(138.136 mm, 103.4594 mm): PTH pad 3 [/SCK2] of J5
+[net_conflict]: Pad net (/MOSI2) doesn't match net given by schematic (/Project Architecture/Section A - Title A/MOSI2).
+    ; warning
+    @(138.136 mm, 100.9194 mm): PTH pad 4 [/MOSI2] of J5
+[net_conflict]: Pad net (/RESET2) doesn't match net given by schematic (/Project Architecture/Section A - Title A/RESET2).
+    ; warning
+    @(140.676 mm, 103.4594 mm): PTH pad 5 [/RESET2] of J5
+[missing_footprint]: Missing footprint LOGO1 (Logo_Open_Hardware_Large)
+    ; warning
+[net_conflict]: Pad net (/RESET2) doesn't match net given by schematic (/Project Architecture/Section A - Title A/RESET2).
+    ; warning
+    @(153.4776 mm, 100.5153 mm): Pad 2 [/RESET2] of R4 on L1 (Sig, PWR)
+[net_conflict]: Pad net (/DTR) doesn't match net given by schematic (/Project Architecture/Section A - Title A/DTR).
+    ; warning
+    @(139.2282 mm, 87.5613 mm): Pad 1 [/DTR] of R5 on L1 (Sig, PWR)
+[net_conflict]: Pad net (/RXLED) doesn't match net given by schematic (/Project Architecture/Section A - Title A/RXLED).
+    ; warning
+    @(144.6556 mm, 89.5468 mm): Pad 10 [/RXLED] of U1 on L1 (Sig, PWR)
+[net_conflict]: Pad net (/TXLED) doesn't match net given by schematic (/Project Architecture/Section A - Title A/TXLED).
+    ; warning
+    @(144.6556 mm, 90.3468 mm): Pad 11 [/TXLED] of U1 on L1 (Sig, PWR)
+[net_conflict]: Pad net (/DTR) doesn't match net given by schematic (/Project Architecture/Section A - Title A/DTR).
+    ; warning
+    @(144.6556 mm, 91.9468 mm): Pad 13 [/DTR] of U1 on L1 (Sig, PWR)
+[net_conflict]: Pad net (/SCK2) doesn't match net given by schematic (/Project Architecture/Section A - Title A/SCK2).
+    ; warning
+    @(144.6556 mm, 93.5468 mm): Pad 15 [/SCK2] of U1 on L1 (Sig, PWR)
+[net_conflict]: Pad net (/MOSI2) doesn't match net given by schematic (/Project Architecture/Section A - Title A/MOSI2).
+    ; warning
+    @(144.6556 mm, 94.3468 mm): Pad 16 [/MOSI2] of U1 on L1 (Sig, PWR)
+[net_conflict]: Pad net (/MISO2) doesn't match net given by schematic (/Project Architecture/Section A - Title A/MISO2).
+    ; warning
+    @(146.1056 mm, 95.7968 mm): Pad 17 [/MISO2] of U1 on L1 (Sig, PWR)
+[net_conflict]: Pad net (/RESET2) doesn't match net given by schematic (/Project Architecture/Section A - Title A/RESET2).
+    ; warning
+    @(151.7056 mm, 95.7968 mm): Pad 24 [/RESET2] of U1 on L1 (Sig, PWR)
+
+** End of Report **

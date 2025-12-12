@@ -182,14 +182,14 @@ import:
       NAME: @FILT_TP_TOP_ONLY@
       COMMENT: Select only top testpoints
       EXCLUDE_BOTTOM: true
-      EXCLUDE_REFS: @EXCLUDE_REFS@
+      EXCLUDE_REFS: "@EXCLUDE_REFS@"
 
   - file: kibot_filt_testpoints.yaml
     definitions:
       NAME: @FILT_TP_BOTTOM_ONLY@
       COMMENT: Select only bottom testpoints
       EXCLUDE_TOP: true
-      EXCLUDE_REFS: @EXCLUDE_REFS@
+      EXCLUDE_REFS: "@EXCLUDE_REFS@"
 
   # Preflights =================================================================
 
@@ -558,13 +558,14 @@ definitions:
   # Metadata ===================================================================
 
   PROJECT_NAME: Test KDT
-  BOARD_NAME: 000
+  BOARD_NAME: Test KDT example
 
   COMPANY: INTI
   DESIGNER: SET
 
   LOGO: 'Logos/logo_INTI.png'
-  GIT_URL: 'https://github.com/set-soft/test_KDT_Hierarchical_KiBot.git'
+  # Plain URL for the repo, don't include the `.git` part
+  GIT_URL: 'https://github.com/set-soft/test_KDT_Hierarchical_KiBot'
 
   # Preflight ==================================================================
 
@@ -573,8 +574,8 @@ definitions:
 
   # BoM ========================================================================
 
-  MPN_FIELD: 'MPN'
-  MAN_FIELD: 'MAN'
+  MPN_FIELD: 'mpn'
+  MAN_FIELD: 'mfn'
 
   # Drill table and drill map parameters =======================================
 

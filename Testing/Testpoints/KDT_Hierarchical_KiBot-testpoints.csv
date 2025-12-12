@@ -1,0 +1,8 @@
+Testpoint Ref.,Net,Net Class,X,Y,Side,Pad Type,Value,Footprint
+TP2,VBUS,Default,98.2660,20.1428,bottom,SMT,TestPoint,TestPoint_Pad_D1.0mm
+TP3,Net-(J2-VBUS),Default,103.9556,21.8192,bottom,SMT,TestPoint,TestPoint_Pad_D1.0mm
+TP4,Earth,Default,109.5436,19.5332,bottom,SMT,TestPoint,TestPoint_Pad_D1.0mm
+TP5,Net-(J2-D+),Default,109.5436,16.2312,bottom,SMT,TestPoint,TestPoint_Pad_D1.0mm
+TP6,Net-(U1-XTAL1),Default,94.7608,30.2520,bottom,SMT,TestPoint,TestPoint_Pad_D1.0mm
+TP8,Net-(U1-PC0{slash}XTAL2),Default,83.9658,30.2774,bottom,SMT,TestPoint,TestPoint_Pad_D1.0mm
+TP9,Net-(U1-D-),Default,86.4296,15.7232,bottom,SMT,TestPoint,TestPoint_Pad_D1.0mm

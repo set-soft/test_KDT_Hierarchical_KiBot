@@ -18,7 +18,13 @@ env:
   # PRELIMINARY: will generate both schematic and PCB documents, but no ERC/DRC
   # CHECKED: will generate both schematic and PCB documents, with ERC/DRC
   # RELEASED: similar to CHECKED, automatically selected when pushing a tag to main
-  kibot_variant: DRAFT
+  kibot_variant: CHECKED
+
+  # Ignored warnings
+  kibot_ignore_warn: '44'
+
+  # Logfile
+  kibot_log: 'kibot.log'
 
   # Set the KiCad version to 9
   kicad_version: 9
@@ -27,6 +33,22 @@ permissions:
   contents: write
 
 jobs:
+  # Choose a docker image according to the KiCad version
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      image: ${{ steps.set-image.outputs.image }}
+    steps:
+      - name: Determine Docker Image
+        id: set-image
+        # Logic: If kicad_version is 8, use kicad8_auto_full, else default to kicad9_auto_full
+        run: |
+          if [ "${{ env.kicad_version }}" == "8" ]; then
+            echo "image=ghcr.io/inti-cmnb/kicad8_auto_full:latest" >> $GITHUB_OUTPUT
+          else
+            echo "image=ghcr.io/inti-cmnb/kicad9_auto_full:latest" >> $GITHUB_OUTPUT
+          fi
+
   release:
     needs: generate_outputs
     runs-on: ubuntu-latest
@@ -59,7 +81,10 @@ jobs:
             Testing/Testpoints/*.csv
 
   generate_outputs:
+    needs: setup
     runs-on: ubuntu-latest
+    container: ${{ needs.setup.outputs.image }}
+
     if: "!contains(github.event.head_commit.message, 'Merge pull request') || github.ref_type == 'tag'"
     steps:
       - name: Checkout Repository
@@ -78,25 +103,20 @@ jobs:
 
       - name: Extract release notes
         if: ${{ github.ref_type == 'tag' }}
-        uses: ffurrer2/extract-release-notes@v2
-        id: extract-release-notes
-        with:
-          prerelease: true
+        run: |
+          pip install --break-system-packages git+https://github.com/set-soft/keepachangelog
+          keepachangelog show -u unreleased
+          keepachangelog show -u unreleased > release-notes.md
 
       - name: Update changelog
         if: ${{ github.ref_type == 'tag' }}
-        uses: thomaseizinger/keep-a-changelog-new-release@v2
-        with:
-          tag: ${{ github.ref_name }}
+        run: |
+          keepachangelog release ${{ github.ref_name }}
 
       - name: Commit updated CHANGELOG
         if: ${{ github.ref_type == 'tag' }}
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          branch: main
-          commit_message: Update CHANGELOG
-          file_pattern: CHANGELOG.md
-          push_options: '--force'
+        run: |
+          git commit --force -m "Update CHANGELOG" CHANGELOG.md
 
       - name: Cache 3D models data
         id: models-cache
@@ -146,61 +166,25 @@ jobs:
           echo "additional_args=${additional_args}" >> $GITHUB_ENV
 
       # Generate notes (skipped for DRAFT variant)
-      - name: Generate notes (KiCad 8)
-        if: ${{ env.kicad_version == '8' && env.kibot_variant != 'DRAFT' }}
-        uses: INTI-CMNB/KiBot@v2_dk8
-        with:
-          targets: notes
-          skip: all
-          variant: ${{ env.kibot_variant }}
-          config: ${{ env.kibot_config }}
-
-      - name: Generate notes (KiCad 9)
-        if: ${{ env.kicad_version == '9' && env.kibot_variant != 'DRAFT' }}
-        uses: INTI-CMNB/KiBot@v2_dk9
-        with:
-          targets: notes
-          skip: all
-          variant: ${{ env.kibot_variant }}
-          config: ${{ env.kibot_config }}
+      - name: Generate notes
+        if: ${{ env.kibot_variant != 'DRAFT' }}
+        id: generate-notes
+        run: |
+          kibot -L '${{ env.kibot_log }}' -c '${{ env.kibot_config }}' -w ${{ env.kibot_ignore_warn }} -d '.' -s all -g variant=${{ env.kibot_variant }} notes
 
       # Generate README only (only for DRAFT variant)
-      - name: Generate README only (KiCad 8)
-        if: ${{ env.kicad_version == '8' && env.kibot_variant == 'DRAFT' }}
-        uses: INTI-CMNB/KiBot@v2_dk8
-        with:
-          targets: md_readme
-          skip: draw_fancy_stackup,set_text_variables,erc,drc
-          variant: ${{ env.kibot_variant }}
-          config: ${{ env.kibot_config }}
-
-      - name: Generate README only (KiCad 9)
-        if: ${{ env.kicad_version == '9' && env.kibot_variant == 'DRAFT' }}
-        uses: INTI-CMNB/KiBot@v2_dk9
-        with:
-          targets: md_readme
-          skip: draw_fancy_stackup,set_text_variables,erc,drc
-          variant: ${{ env.kibot_variant }}
-          config: ${{ env.kibot_config }}
+      - name: Generate README only
+        if: ${{ env.kibot_variant == 'DRAFT' }}
+        id: generate-readme
+        run: |
+          kibot -L '${{ env.kibot_log }}' -c '${{ env.kibot_config }}' -w ${{ env.kibot_ignore_warn }} -d '.' -s draw_fancy_stackup,set_text_variables,erc,drc -g variant=${{ env.kibot_variant }} md_readme
 
       # Generate outputs
-      - name: Generate outputs (KiCad 8)
-        if: ${{ env.kicad_version == '8' }}
-        uses: INTI-CMNB/KiBot@v2_dk8
-        with:
-          additional_args: ${{ env.additional_args }}
-          variant: ${{ env.kibot_variant }}
-          config: ${{ env.kibot_config }}
-          cache3D: YES
-
-      - name: Generate outputs (KiCad 9)
-        if: ${{ env.kicad_version == '9' }}
-        uses: INTI-CMNB/KiBot@v2_dk9
-        with:
-          additional_args: ${{ env.additional_args }}
-          variant: ${{ env.kibot_variant }}
-          config: ${{ env.kibot_config }}
-          cache3D: YES
+      - name: Generate outputs
+        id: generate-outputs
+        run: |
+          export KIBOT_3D_MODELS="$HOME/cache_3d"
+          kibot -L '${{ env.kibot_log }}' -c '${{ env.kibot_config }}' -w ${{ env.kibot_ignore_warn }} -d '.' -g variant=${{ env.kibot_variant }} ${{ env.additional_args }}
 
       - name: Pull latest changes
         run: |
@@ -233,9 +217,18 @@ jobs:
           git clean -f "*.kicad_pro"
           git clean -f "*.kicad_dru"
           git clean -f "*.kicad_prl"
+          echo "ref_name: " ${{ github.ref_name }}
+          git status
 
       - name: Update Outputs
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           branch: ${{ github.ref_name }}
           commit_message: Update Outputs
+
+      - name: Store log
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: log_file
+          path: ${{ env.kibot_log }}
