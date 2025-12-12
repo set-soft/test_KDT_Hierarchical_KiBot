@@ -116,7 +116,7 @@ jobs:
       - name: Commit updated CHANGELOG
         if: ${{ github.ref_type == 'tag' }}
         run: |
-          git commit --force -m "Update CHANGELOG" CHANGELOG.md
+          git commit -m "Update CHANGELOG" CHANGELOG.md
 
       - name: Cache 3D models data
         id: models-cache
