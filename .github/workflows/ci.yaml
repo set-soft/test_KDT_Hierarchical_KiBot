@@ -60,6 +60,8 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Pull latest changes
+        # We did a checkout for the tag, but the outputs were updated by generate_outputs.
+        # So here we look for the updates.
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
@@ -84,6 +86,9 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     container: ${{ needs.setup.outputs.image }}
+    defaults:
+      run:
+        shell: bash
 
     if: "(!contains(github.event.head_commit.message, 'Merge pull request') || github.ref_type == 'tag') && github.ref_name != 'main'"
     steps:
