@@ -74,10 +74,16 @@ jobs:
           keepachangelog show -u unreleased
           keepachangelog show -u unreleased > release-notes.md
 
+      - name: Create a tag for the exact release
+        # We did changes after the tag, so here we use a derivated tag
+        run: |
+          git tag release_${{ github.ref_name }}
+          git push origin --tags
+
       - name: Release
         run: |
           export GH_TOKEN="${{ github.token }}"
-          gh release create --notes-file release-notes.md -t ${{ github.ref_name }} ${{ github.ref_name }} Schematic/*.pdf Manufacturing/Assembly/* Manufacturing/Fabrication/*.pdf Manufacturing/Fabrication/*.zip Manufacturing/Fabrication/*.txt 3D/*.step Testing/Testpoints/*.csv
+          gh release create --notes-file release-notes.md -t release_${{ github.ref_name }} ${{ github.ref_name }} Schematic/*.pdf Manufacturing/Assembly/* Manufacturing/Fabrication/*.pdf Manufacturing/Fabrication/*.zip Manufacturing/Fabrication/*.txt 3D/*.step Testing/Testpoints/*.csv
 
   generate_outputs:
     needs: setup
