@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/__w/test_KDT_Hierarchical_KiBot/test_KDT_Hierarchical_KiBot/KDT_Hierarchical_KiBot.kicad_sch</source>
-    <date>2025-12-12T14:00:09+0000</date>
+    <date>2025-12-12T14:05:24+0000</date>
     <tool>Eeschema 9.0.6+1</tool>
     <textvar name="ASSEMBLY_NOTES">ASSEMBLY NOTES (UNLESS OTHERWISE SPECIFIED)
 
@@ -74,7 +74,7 @@
 11)	REFER TO IMPEDANCE TABLE FOR IMPEDANCE CONTROL REQUIREMENTS.
 
 12)	CONFIRM SPACE WIDTHS AND SPACINGS.</textvar>
-    <textvar name="GIT_HASH_PCB">df07eff</textvar>
+    <textvar name="GIT_HASH_PCB">786cb53</textvar>
     <textvar name="GIT_HASH_SCH">c440c30</textvar>
     <textvar name="GIT_URL">https://github.com/set-soft/test_KDT_Hierarchical_KiBot</textvar>
     <textvar name="PROJECT_NAME">Test KDT</textvar>
@@ -90,7 +90,7 @@
     <textvar name="RELEASE_TITLE_1.0.2"/>
     <textvar name="RELEASE_TITLE_1.1.0"/>
     <textvar name="RELEASE_TITLE_UNRELEASED">Version Unreleased not found.</textvar>
-    <textvar name="REVISION">0.1.5</textvar>
+    <textvar name="REVISION">0.1.6</textvar>
     <textvar name="SHEET_NAME_1">Cover Page</textvar>
     <textvar name="SHEET_NAME_10">......................................</textvar>
     <textvar name="SHEET_NAME_11">......................................</textvar>
@@ -136,7 +136,7 @@
       <title_block>
         <title/>
         <company>INTI</company>
-        <rev>0.1.5</rev>
+        <rev>0.1.6</rev>
         <date>2025-01-12</date>
         <source>KDT_Hierarchical_KiBot.kicad_sch</source>
         <comment number="1" value=""/>
@@ -154,7 +154,7 @@
       <title_block>
         <title>Block Diagram</title>
         <company>INTI</company>
-        <rev>0.1.5</rev>
+        <rev>0.1.6</rev>
         <date>2025-01-12</date>
         <source>Block Diagram.kicad_sch</source>
         <comment number="1" value=""/>
@@ -172,7 +172,7 @@
       <title_block>
         <title>Project Architecture</title>
         <company>INTI</company>
-        <rev>0.1.5</rev>
+        <rev>0.1.6</rev>
         <date>2025-01-12</date>
         <source>Project Architecture.kicad_sch</source>
         <comment number="1" value=""/>
@@ -190,7 +190,7 @@
       <title_block>
         <title>Sheet Title A</title>
         <company>INTI</company>
-        <rev>0.1.5</rev>
+        <rev>0.1.6</rev>
         <date>2025-01-12</date>
         <source>Section A - Title A.kicad_sch</source>
         <comment number="1" value=""/>
@@ -208,7 +208,7 @@
       <title_block>
         <title>Sheet Title B</title>
         <company>INTI</company>
-        <rev>0.1.5</rev>
+        <rev>0.1.6</rev>
         <date>2025-01-12</date>
         <source>Section B - TItle B.kicad_sch</source>
         <comment number="1" value=""/>
@@ -226,7 +226,7 @@
       <title_block>
         <title>Power - Sequencing</title>
         <company>INTI</company>
-        <rev>0.1.5</rev>
+        <rev>0.1.6</rev>
         <date>2025-01-12</date>
         <source>Power - Sequencing.kicad_sch</source>
         <comment number="1" value=""/>
@@ -244,7 +244,7 @@
       <title_block>
         <title>Revision History</title>
         <company>INTI</company>
-        <rev>0.1.5</rev>
+        <rev>0.1.6</rev>
         <date>2025-01-12</date>
         <source>Revision History.kicad_sch</source>
         <comment number="1" value=""/>
