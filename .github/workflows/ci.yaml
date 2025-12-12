@@ -60,6 +60,8 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Pull latest changes
+        # We did a checkout for the tag, but the outputs were updated by generate_outputs.
+        # So here we look for the updates.
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
@@ -84,8 +86,11 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     container: ${{ needs.setup.outputs.image }}
+    defaults:
+      run:
+        shell: bash
 
-    if: "!contains(github.event.head_commit.message, 'Merge pull request') || github.ref_type == 'tag'"
+    if: "(!contains(github.event.head_commit.message, 'Merge pull request') || github.ref_type == 'tag') && github.ref_name != 'main'"
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -116,6 +121,7 @@ jobs:
       - name: Commit updated CHANGELOG
         if: ${{ github.ref_type == 'tag' }}
         run: |
+          git switch main
           git commit -m "Update CHANGELOG" CHANGELOG.md
 
       - name: Cache 3D models data
@@ -220,11 +226,16 @@ jobs:
           echo "ref_name: " ${{ github.ref_name }}
           git status
 
+#      - name: Update Outputs
+#        uses: stefanzweifel/git-auto-commit-action@v5
+#        with:
+#          branch: ${{ github.ref_name }}
+#          commit_message: Update Outputs
+#          push_options: '--force'
       - name: Update Outputs
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          branch: ${{ github.ref_name }}
-          commit_message: Update Outputs
+        run: |
+          git commit -a -m "Update Outputs"
+          git push -f
 
       - name: Store log
         if: ${{ always() }}
