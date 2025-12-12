@@ -1,11 +1,15 @@
 ** Drc report for KDT_Hierarchical_KiBot.kicad_pcb **
-** Created on 2025-12-12T14:05:26+0000 **
+** Created on 2025-12-12T14:19:15+0000 **
 
 ** Found 55 DRC violations **
 [clearance]: Clearance violation (rule 'Minimum Trace Width and Spacing (outer layer)' clearance 0.2000 mm; actual 0.1905 mm)
     ; error
     @(155.027 mm, 91.9278 mm): Via [Earth] on L1 (Sig, PWR) - L6 (Sig, PWR)
     @(153.1556 mm, 91.1468 mm): Track [Net-(U1-D+)] on L1 (Sig, PWR), length 4.3162 mm
+[clearance]: Clearance violation (rule 'Minimum Trace Width and Spacing (outer layer)' clearance 0.2000 mm; actual 0.1524 mm)
+    ; error
+    @(143.068711 mm, 91.084489 mm): Via [Net-(J6-Pin_2)] on L1 (Sig, PWR) - L6 (Sig, PWR)
+    @(142.7906 mm, 91.9468 mm): Track [/DTR] on L1 (Sig, PWR), length 0.7634 mm
 [clearance]: Clearance violation (rule 'Minimum Trace Width and Spacing (outer layer)' clearance 0.2000 mm; actual 0.1588 mm)
     ; error
     @(148.1944 mm, 84.2062 mm): Track [Net-(J3-Pin_3)] on L6 (Sig, PWR), length 7.4422 mm
@@ -22,10 +26,10 @@
     ; error
     @(143.068711 mm, 91.084489 mm): Via [Net-(J6-Pin_2)] on L1 (Sig, PWR) - L6 (Sig, PWR)
     @(142.5556 mm, 90.3276 mm): Track [/TXLED] on L1 (Sig, PWR), length 2.0808 mm
-[clearance]: Clearance violation (rule 'Minimum Trace Width and Spacing (outer layer)' clearance 0.2000 mm; actual 0.1524 mm)
+[clearance]: Clearance violation (rule 'Minimum Trace Width and Spacing (outer layer)' clearance 0.2000 mm; actual 0.1858 mm)
     ; error
-    @(143.068711 mm, 91.084489 mm): Via [Net-(J6-Pin_2)] on L1 (Sig, PWR) - L6 (Sig, PWR)
-    @(142.7906 mm, 91.9468 mm): Track [/DTR] on L1 (Sig, PWR), length 0.7634 mm
+    @(150.4296 mm, 90.2768 mm): Pad 1 [Net-(U1-D-)] of TP9 on L6 (Sig, PWR)
+    @(151.3694 mm, 85.5778 mm): Track [Net-(J3-Pin_4)] on L6 (Sig, PWR), length 7.6708 mm
 [clearance]: Clearance violation (rule 'Pad to Track clearance' clearance 0.2000 mm; actual 0.1595 mm)
     ; error
     @(147.7056 mm, 95.7968 mm): Track [Net-(J4-Pin_3)] on L1 (Sig, PWR), length 6.3480 mm
@@ -42,10 +46,6 @@
     ; error
     @(138.136 mm, 103.4594 mm): PTH pad 3 [/SCK2] of J5
     @(139.419599 mm, 104.487201 mm): Track [/MISO2] on L1 (Sig, PWR), length 1.6309 mm
-[clearance]: Clearance violation (rule 'Minimum Trace Width and Spacing (outer layer)' clearance 0.2000 mm; actual 0.1858 mm)
-    ; error
-    @(150.4296 mm, 90.2768 mm): Pad 1 [Net-(U1-D-)] of TP9 on L6 (Sig, PWR)
-    @(151.3694 mm, 85.5778 mm): Track [Net-(J3-Pin_4)] on L6 (Sig, PWR), length 7.6708 mm
 [clearance]: Clearance violation (rule 'Minimum Trace Width and Spacing (outer layer)' clearance 0.2000 mm; actual 0.1524 mm)
     ; error
     @(146.1627 mm, 91.5468 mm): Via [Net-(J6-Pin_4)] on L1 (Sig, PWR) - L6 (Sig, PWR)
@@ -205,12 +205,12 @@
     @(141.7936 mm, 74.9321 mm): Track [+5V] on L1 (Sig, PWR), length 1.2923 mm
 [unconnected_items]: Missing connection between items
     ; error
-    @(153.1556 mm, 88.7468 mm): Pad 32 [+5V] of U1 on L1 (Sig, PWR)
+    @(153.1556 mm, 88.7468 mm): Track [+5V] on L1 (Sig, PWR), length 0.5864 mm
     @(149.3056 mm, 87.2968 mm): Track [+5V] on L1 (Sig, PWR), length 1.3862 mm
 [unconnected_items]: Missing connection between items
     ; error
     @(153.4776 mm, 102.3903 mm): Track [+5V] on L1 (Sig, PWR), length 1.0691 mm
-    @(153.1556 mm, 88.7468 mm): Pad 32 [+5V] of U1 on L1 (Sig, PWR)
+    @(153.1556 mm, 88.7468 mm): Track [+5V] on L1 (Sig, PWR), length 0.5864 mm
 
 ** Found 18 Footprint errors **
 [net_conflict]: Pad net (/DTR) doesn't match net given by schematic (/Project Architecture/Section A - Title A/DTR).
