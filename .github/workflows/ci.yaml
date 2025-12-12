@@ -69,18 +69,8 @@ jobs:
           git pull origin main
 
       - name: Release
-        uses: docker://antonyurchenko/git-release:v5
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          args: |
-            Schematic/*.pdf
-            Manufacturing/Assembly/*
-            Manufacturing/Fabrication/*.pdf
-            Manufacturing/Fabrication/*.zip
-            Manufacturing/Fabrication/*.txt
-            3D/*.step
-            Testing/Testpoints/*.csv
+        run: |
+          gh release create --notes-file release-notes.md -t ${{ github.ref }} ${{ github.ref }} Schematic/*.pdf Manufacturing/Assembly/* Manufacturing/Fabrication/*.pdf Manufacturing/Fabrication/*.zip Manufacturing/Fabrication/*.txt 3D/*.step Testing/Testpoints/*.csv
 
   generate_outputs:
     needs: setup
@@ -223,8 +213,6 @@ jobs:
           git clean -f "*.kicad_pro"
           git clean -f "*.kicad_dru"
           git clean -f "*.kicad_prl"
-          echo "ref_name: " ${{ github.ref_name }}
-          git status
 
       - name: Update Outputs
         run: |
