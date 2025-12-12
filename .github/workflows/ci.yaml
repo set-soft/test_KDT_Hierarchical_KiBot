@@ -116,6 +116,7 @@ jobs:
       - name: Commit updated CHANGELOG
         if: ${{ github.ref_type == 'tag' }}
         run: |
+          git switch main
           git commit -m "Update CHANGELOG" CHANGELOG.md
 
       - name: Cache 3D models data
