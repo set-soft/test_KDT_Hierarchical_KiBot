@@ -107,6 +107,7 @@ jobs:
         if: ${{ github.ref_type == 'tag' }}
         run: |
           pip install --break-system-packages git+https://github.com/set-soft/keepachangelog
+          keepachangelog show -u unreleased
           keepachangelog release ${{ github.ref_name }}
 
       - name: Commit updated CHANGELOG
