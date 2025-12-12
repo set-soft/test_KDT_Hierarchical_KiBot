@@ -226,6 +226,7 @@ jobs:
         with:
           branch: ${{ github.ref_name }}
           commit_message: Update Outputs
+          push_options: '--force'
 
       - name: Store log
         if: ${{ always() }}
