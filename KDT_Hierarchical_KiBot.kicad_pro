@@ -1056,7 +1056,7 @@
     "RELEASE_TITLE_1.0.2": "",
     "RELEASE_TITLE_1.1.0": "",
     "RELEASE_TITLE_UNRELEASED": "Version Unreleased not found.",
-    "REVISION": "0.1.0+ (Unreleased)",
+    "REVISION": "0.1.1",
     "SHEET_NAME_1": "Cover Page",
     "SHEET_NAME_10": "......................................",
     "SHEET_NAME_11": "......................................",
@@ -1097,6 +1097,6 @@
     "SHEET_NAME_7": "Revision History",
     "SHEET_NAME_8": "......................................",
     "SHEET_NAME_9": "......................................",
-    "VARIANT": "CHECKED"
+    "VARIANT": "RELEASED"
   }
 }
