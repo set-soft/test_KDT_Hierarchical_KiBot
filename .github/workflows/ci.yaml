@@ -70,6 +70,7 @@ jobs:
 
       - name: Release
         run: |
+          export GH_TOKEN="${{ github.token }}"
           gh release create --notes-file release-notes.md -t ${{ github.ref }} ${{ github.ref }} Schematic/*.pdf Manufacturing/Assembly/* Manufacturing/Fabrication/*.pdf Manufacturing/Fabrication/*.zip Manufacturing/Fabrication/*.txt 3D/*.step Testing/Testpoints/*.csv
 
   generate_outputs:
